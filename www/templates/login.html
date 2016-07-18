@@ -1,0 +1,37 @@
+<ion-view class="loginback" hide-nav-bar="true">
+	<ion-content class="loginback" padding="true">
+		<!--
+		<div ng-if="enablesocial === false">
+		</div>
+		-->
+		<div class="spacer" style="height: 50px;"></div>
+	<form id="login-form1" class="list ">
+		<div class="">
+			<img src="img/cdm.png" width="50%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+		</div>
+		<h4 id="login-heading2" style="color:#000000;text-align:center;" class=" "></h4>
+		<div class="spacer" style="width: 300px; height: 42px;"></div>
+		<ion-list id="login-list7" class=" ">
+		<label class="item item-input " id="login-input1">
+			<input type="text" placeholder="Username"  ng-model="data.username">
+		</label>
+		<label class="item item-input " id="login-input2">
+			<input type="password"  placeholder="Password" ng-model="data.password">
+		</label>
+	</ion-list>
+	<div class="spacer" style="height: 30px;"></div>
+	<button class="button button-block button-assertive loginbtn" ng-click="login()">Login</button>
+	</form>
+	
+	<div ng-if="enablesocial === true">
+		<div class="card">
+			<div class="item item-text-wrap">
+				<!-- <button class="button icon-left ion-social-googleplus button-block button-assertive" ng-click="gLogin()">Sign in with <b>Google</b></button>-->
+				<button class="button icon-left ion-social-facebook button-block button-positive" ng-click="fbLogin()">Sign in with <b>Facebook</b></button>
+			</div>
+		</div>
+	</div>
+	
+
+	</ion-content>
+</ion-view>

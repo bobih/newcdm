@@ -1,0 +1,66 @@
+<ion-view view-title="Chats" cache-view="false" id="userMessagesView">
+      <ion-nav-buttons side="right">
+          <button class="button button-icon icon ion-arrow-swap" ng-click="showPopup()"></button>
+      </ion-nav-buttons>
+
+      <ion-content has-bouncing="true" class="chatcontent has-header has-footer" delegate-handle="userMessageScroll">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+        <div ng-repeat="chat in chats" class="message-wrapper showanimate" ng-model="chat.message">
+            <!-- <img class="profile-pic left" /> -->
+            <div class="msgBubble ">
+                <div ng-if="username !== chat.user">
+                    <div class="chat-bubble left showanimate">
+                        <div class="message-detail">
+                            <span ng-click="viewProfile(message)" class="bold">{{chat.user}}</span>
+                        </div>
+                        <div class="message" ng-bind-html="chat.message | emoticons:{linkTarget:'_blank'}" autolinker>
+                        </div>
+                        <span class="chatdate">{{chat.date | date:'hh:mm a'}}</span>
+                    </div>
+                </div>
+                <div ng-if="username === chat.user">
+                    <div class="chat-bubble left showanimate usermsg">
+                        <!--
+                        <div class="message-detail">
+                            <span ng-click="viewProfile(message)" class="bold">{{chat.user}}</span>
+                        </div>
+                      -->
+                        <div class="message" ng-bind-html="chat.message | emoticons:{linkTarget:'_blank'}" autolinker>
+                        </div>
+                        <span class="chatdate">{{chat.date | date:'hh:mm a'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cf"></div>
+    </ion-content>
+
+    <!--
+    <form>
+        <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+            <label class="item-input-wrapper">
+                      <textarea ng-model="chat.message"" placeholder="Message" required minlength="1" maxlength="1500" msd-elastic></textarea>
+                  </label>
+            <div class="footer-btn-wrap">
+                <button class="button button-icon icon ion-android-send footer-btn" type="submit" ng-click="sendChat(chat)">
+                </button>
+            </div>
+        </ion-footer-bar>
+    </form>
+    -->
+     <form name="sendMessageForm" novalidate>
+              <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+                  <label class="item-input-wrapper">
+                      <textarea ng-model="chat.message" value="" placeholder="Message" required minlength="1" maxlength="1500" msd-elastic></textarea>
+                  </label>
+                  <div class="footer-btn-wrap">
+                    <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                        ng-disabled="!chat.message || chat.message === ''" ng-click="sendChat(chat)">
+                    </button>
+                  </div>
+              </ion-footer-bar>
+          </form>
+</ion-view>

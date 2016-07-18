@@ -1,0 +1,14 @@
+<ion-view view-title="Account" cache-view="false">
+  <ion-content ng-controller="AccountCtrl">
+    <div class="list card">
+      <div class="item item-avatar">
+        <h2>{{userData.name}}</h2>
+        <p>{{userData.email}}</p>
+      </div>
+      <div class="item item-body">
+        <div class="center">
+          <img class="full-image photoacct" src="{{userData.photo}}">
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

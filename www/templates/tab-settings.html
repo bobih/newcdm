@@ -1,0 +1,26 @@
+<ion-view view-title="Settings" cache-view="false">
+    <ion-content>
+        <div class="list">
+
+            <ion-item class="item-icon-left item-icon-right" id="menu-list-item14" ui-sref="tab.account" menu-close="">
+                <i class="icon ion-ios-person"></i>Account
+                <i class="icon ion-ios-arrow-right icon-accessory"></i>
+            </ion-item>
+
+             <ion-item class="item-icon-left item-icon-right" id="menu-list-item14" ui-sref="tab.about" menu-close="">
+                <i class="icon ion-information-circled"></i>About
+                <i class="icon ion-ios-arrow-right icon-accessory"></i>
+            </ion-item>
+            <ion-toggle class="item-icon-left" ng-model="Notification.checked" ng-change="NotificationChange()">
+                <i class="icon ion-ios-bell"></i>Notification Sound
+                </ion-toggle>
+            <div class="item item-divider">
+                
+            </div>
+
+            <ion-item class="item-icon-left" id="menu-list-item14" ui-sref="logout" menu-close="">
+                <i class="icon ion-android-exit"></i>Logout
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>
